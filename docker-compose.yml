@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build: ./givers-frontend
+    ports:
+      - "8001:3000"
+    volumes:
+      - .:/frontend
+    env_file:
+      - ./givers-frontend/.env
+
+  backend:
+    build: ./givers-backend
+    ports:
+      - "9001:8000"
+    volumes:
+      - .:/backend
+    env_file:
+      - ./givers-backend/givers/.env
