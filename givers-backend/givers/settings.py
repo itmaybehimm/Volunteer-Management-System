@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["givers-backend.herokuapp.com", "*"]
 
 
@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     "jet",
     "django.contrib.admin",
     "django.contrib.auth",
-    #"cloudinary_storage",
+    # "cloudinary_storage",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
@@ -48,11 +48,10 @@ INSTALLED_APPS = [
     "category.apps.CategoryConfig",
     "miscellaneous.apps.MiscellaneousConfig",
     "verify.apps.VerifyConfig",
-    #"cloudinary",
+    # "cloudinary",
     "invitation.apps.InvitationConfig",
     "coreapi",
     "drf_yasg",
-    
 ]
 
 REST_FRAMEWORK = {
@@ -188,16 +187,17 @@ STATIC_URL = "/static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-MEDIA_ROOT = BASE_DIR / "media"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_FROM = env('EMAIL_HOST_USER')
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_FROM = env("EMAIL_HOST_USER")
+EMAIL_HOST_USER = env("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = "Givers Team <noreply@volunteermanagementsystem.com>"
 
 
@@ -211,11 +211,11 @@ CORS_ORIGIN_WHITELIST = (
 
 # Swagger Setting
 SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS' : {
-        "Auth Token eg [Bearer (JWT) ]" : {
+    "SECURITY_DEFINITIONS": {
+        "Auth Token eg [Bearer (JWT) ]": {
             "type": "apiKey",
             "name": "Authorization",
-            "in": "header"
+            "in": "header",
         }
     }
 }

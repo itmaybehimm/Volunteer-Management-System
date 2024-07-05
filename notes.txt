@@ -1,0 +1,9 @@
+just do docker-compose up
+
+Backend login admin:
+Email: givers@gmail.com
+Pw: 11111111
+Frontend login readymade:
+Email: locus@gmail.com
+Email: zanam@gmail.com
+Pw for both: 11111111
